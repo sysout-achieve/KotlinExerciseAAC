@@ -1,11 +1,12 @@
 package com.gunt.kotlinexerciseaac
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface TodoDAO {
     @Query("SELECT * FROM Todo")
-    fun getAll(): List<Todo>
+    fun getAll(): LiveData<List<Todo>>
 
     @Insert
     fun insertAll(vararg todos: Todo)

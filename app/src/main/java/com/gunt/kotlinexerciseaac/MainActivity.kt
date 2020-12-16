@@ -2,8 +2,12 @@ package com.gunt.kotlinexerciseaac
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,15 +17,20 @@ class MainActivity : AppCompatActivity() {
         val db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
-            "todo-db")
-            .allowMainThreadQueries()
-            .build()
+            "todo-db"
+        ).build()
 
-        txt_list.text = db.todoDAO().getAll().toString()
+        db.todoDAO().getAll().observe(this, Observer {
+            txt_list.text = it.toString()
+        })
+
+
+
 
         btn_input.setOnClickListener {
-            db.todoDAO().insert(Todo(et_todo.text.toString()))
-            txt_list.text = db.todoDAO().getAll().toString()
+            lifecycleScope.launch(Dispatchers.IO) {
+                db.todoDAO().insert(Todo(et_todo.text.toString()))
+            }
         }
     }
 }
