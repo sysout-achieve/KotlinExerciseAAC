@@ -4,18 +4,19 @@ import androidx.room.*
 
 @Dao
 interface TodoDAO {
-    @get:Query("SELECT * FROM Todo")
-    val all: List<Todo?>?
+    @Query("SELECT * FROM Todo")
+    fun getAll(): List<Todo>
 
     @Insert
-    fun insertAll(vararg todos: Todo?)
+    fun insertAll(vararg todos: Todo)
 
     @Insert
-    fun insert(todo: Todo?)
+    fun insert(todo: Todo)
+
 
     @Update
-    fun update(todo: Todo?)
+    fun update(todo: Todo)
 
     @Delete
-    fun delete(todo: Todo?)
+    fun delete(todo: Todo)
 }
