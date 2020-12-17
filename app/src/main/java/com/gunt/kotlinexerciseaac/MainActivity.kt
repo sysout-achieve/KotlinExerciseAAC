@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity() {
             txt_list.text = it.toString()
         })
 
-
-
-
         btn_input.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
                 db.todoDAO().insert(Todo(et_todo.text.toString()))
