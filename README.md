@@ -8,6 +8,17 @@ AAC 연습프로젝트(Kotlin)
 4. DataBinding
 
 
+## Coroutine
+- 비동기 처리를 위해 만들어진 협력형 멀티태스킹 장치
+
+<img src="https://user-images.githubusercontent.com/18481078/63651705-a0e49b80-c792-11e9-9924-eb737b813065.png" width="50%" height="50%"/>
+<br>
+
+[이미지 출처](https://wooooooak.github.io/kotlin/2019/08/25/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%BD%94%EB%A3%A8%ED%8B%B4-%EA%B0%9C%EB%85%90-%EC%9D%B5%ED%9E%88%EA%B8%B0/) 
+
+- suspend 함수와 코루틴을 사용하면 비동기 코드를 동기코드처럼 짤 수 있다. (kotlin 기준)
+
+
 <hr>
 
 ## Room
