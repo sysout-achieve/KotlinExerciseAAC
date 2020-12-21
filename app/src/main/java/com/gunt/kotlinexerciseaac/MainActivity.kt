@@ -1,5 +1,6 @@
 package com.gunt.kotlinexerciseaac
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,5 +18,10 @@ class MainActivity : AppCompatActivity() {
         val viewModel: MainViewModel by viewModels()
         binding.viewModel = viewModel
 
+        binding.btnNext.setOnClickListener {
+            val nextIntent = Intent(this, NaviActivity::class.java)
+            startActivity(nextIntent)
+            finish()
+        }
     }
 }

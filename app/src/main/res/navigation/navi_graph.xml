@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_graph"
+    app:startDestination="@id/naviFirstFragment">
+
+    <fragment
+        android:id="@+id/naviFirstFragment"
+        android:name="com.gunt.kotlinexerciseaac.NaviFirstFragment"
+        android:label="메인화면"
+        tools:layout="@layout/fragment_navi_first" >
+        <action
+            android:id="@+id/action_naviFirstFragment_to_naviSecondFragment"
+            app:destination="@id/naviSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/naviSecondFragment"
+        android:name="com.gunt.kotlinexerciseaac.NaviSecondFragment"
+        android:label="두번째화면"
+        tools:layout="@layout/fragment_navi_second" >
+        <argument
+            android:name="TodoStr"
+            app:argType="string" />
+    </fragment>
+</navigation>
