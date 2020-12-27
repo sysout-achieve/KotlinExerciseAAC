@@ -19,7 +19,6 @@ class NaviFirstFragment : Fragment() {
         val action = NaviFirstFragmentDirections.actionNaviFirstFragmentToNaviSecondFragment("hello!!!!");
 
         view.btn_second.setOnClickListener {
-
             Navigation.findNavController(view).navigate(action)
         }
     }
